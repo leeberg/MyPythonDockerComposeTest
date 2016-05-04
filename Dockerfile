@@ -1,5 +1,3 @@
-FROM python:2.7
-ADD . /code
-WORKDIR /code
-RUN pip install -r requirements.txt
-CMD python app.py
+FROM alpine:3.1
+RUN apk add --update mysql-client && rm -rf /var/cache/apk/*
+ENTRYPOINT ["mysql"]
